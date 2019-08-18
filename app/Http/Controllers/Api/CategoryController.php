@@ -35,7 +35,9 @@ class CategoryController extends Controller
 
     public function show(Category $category)
     {
-        return new CategoryResource($category);
+        return (new CategoryResource($category))
+                ->response()
+                ->setStatusCode(200);
     }
 
     public function update(UpdateCategoryRequest $request, Category $category)
@@ -45,7 +47,9 @@ class CategoryController extends Controller
         try {
             $category->update($request->all());
 
-            return new CategoryResource($category);
+            return (new CategoryResource($category))
+                ->response()
+                ->setStatusCode(200);
         } catch (Exception $e) {
             return response()->json([
                 'message' => $e->getMessage(),
@@ -60,7 +64,9 @@ class CategoryController extends Controller
         try {
             $category->delete();
 
-            return new CategoryResource($category);
+            return (new CategoryResource($category))
+                ->response()
+                ->setStatusCode(200);
         } catch (Exception $e) {
             return response()->json([
                 'message' => $e->getMessage(),

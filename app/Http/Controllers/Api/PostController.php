@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Post;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
@@ -41,7 +40,9 @@ class PostController extends Controller
     {
         $this->authorize('view', $post);
 
-        return new PostResource($post);
+        return (new PostResource($post))
+                ->response()
+                ->setStatusCode(200);
     }
 
     public function update(UpdatePostRequest $request, Post $post)
@@ -56,7 +57,9 @@ class PostController extends Controller
             ]);
             $post->categories()->sync($request->get('categories'));
 
-            return new PostResource($post);
+            return (new PostResource($post))
+                ->response()
+                ->setStatusCode(200);
         } catch (Exception $e) {
             return response()->json([
                 'message' => $e->getMessage(),
@@ -71,7 +74,9 @@ class PostController extends Controller
         try {
             $post->delete();
 
-            return new PostResource($post);
+            return (new PostResource($post))
+                ->response()
+                ->setStatusCode(200);
         } catch (Exception $e) {
             return response()->json([
                 'message' => $e->getMessage(),
