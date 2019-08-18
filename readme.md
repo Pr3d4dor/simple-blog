@@ -9,6 +9,8 @@ ver somente os seus posts
 
 A listagem de posts e categorias (CRUDS) pode ser acessada menu no canto superior direito.
 
+Alunos: Gianluca Bine e Alessandro Dias.
+
 ## Instalação
 
 Clonar o repositório:
@@ -133,4 +135,11 @@ Corpo das requisicoes POST, PUT/PATCH:
   "name": "Nome da categoria",
   "color": "#fffff", // Cor da categoria em hexadecimal
 }
+```
+
+## Testes
+
+Para rodar os testes (Feature e Unitários) basta rodar:
+```
+/vendor/bin/phpunit ou composer test
 ```
