@@ -112,7 +112,7 @@ Posts:
 - DELETE /api/posts/<id>
 
 Corpo das requisicoes POST, PUT/PATCH:
-```json
+```
 {
 	"title": "Titulo do post",
   "body": "Corpo do post",
@@ -128,7 +128,7 @@ Categorias:
 - DELETE /api/categories/<id>
 
 Corpo das requisicoes POST, PUT/PATCH:
-```json
+```
 {
 	"name": "Nome da categoria",
   "color": "#fffff", // Cor da categoria em hexadecimal
