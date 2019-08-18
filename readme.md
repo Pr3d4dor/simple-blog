@@ -114,7 +114,7 @@ Posts:
 Corpo das requisicoes POST, PUT/PATCH:
 ```
 {
-	"title": "Titulo do post",
+  "title": "Titulo do post",
   "body": "Corpo do post",
   "categories": [1, 2, 3] // array de ids das categorias associadas ao post
 }
@@ -130,7 +130,7 @@ Categorias:
 Corpo das requisicoes POST, PUT/PATCH:
 ```
 {
-	"name": "Nome da categoria",
+  "name": "Nome da categoria",
   "color": "#fffff", // Cor da categoria em hexadecimal
 }
 ```
