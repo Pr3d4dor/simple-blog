@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -12,22 +10,32 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
 // Authentication routes
-Route::group([
-    'prefix' => 'auth'
-], function () {
-    Route::post('login', 'Api\AuthController@login');
-    Route::post('logout', 'Api\AuthController@logout');
-    Route::post('refresh', 'Api\AuthController@refresh');
-    Route::post('me', 'Api\AuthController@me');
+Route::group(['prefix' => 'auth'], function () {
+    Route::post('login', 'Api\AuthController@login')->name('api.auth.login');
+    Route::post('me', 'Api\AuthController@me')->name('api.auth.me');
 });
 
 // CRUD routes
 Route::middleware('auth:api')->group(function () {
-    Route::apiResources([
-        'posts' => 'Api\PostController',
-        'categories' => 'Api\CategoryController'
-    ]);
+    Route::apiResource('posts','Api\PostController')
+        ->names([
+            'index' => 'api.posts.index',
+            'store' => 'api.posts.store',
+            'show' => 'api.posts.show',
+            'update' => 'api.posts.update',
+            'destroy' => 'api.posts.destroy',
+        ]);
+
+    Route::apiResource('categories', 'Api\CategoryController')
+        ->names([
+            'index' => 'api.categories.index',
+            'store' => 'api.categories.store',
+            'show' => 'api.categories.show',
+            'update' => 'api.categories.update',
+            'destroy' => 'api.categories.destroy',
+        ]);
 });
 
 // Fallback route
