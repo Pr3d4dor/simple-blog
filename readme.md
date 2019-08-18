@@ -108,10 +108,10 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvX
 
 Posts:
 - GET /api/posts
-- GET /api/posts/<id>
+- GET /api/posts/{id}
 - POST /api/posts
-- PUT/PATCH /api/posts/<id>
-- DELETE /api/posts/<id>
+- PUT/PATCH /api/posts/{id}
+- DELETE /api/posts/{id}
 
 Corpo das requisicoes POST, PUT/PATCH:
 ```
@@ -124,10 +124,10 @@ Corpo das requisicoes POST, PUT/PATCH:
 
 Categorias:
 - GET /api/categories
-- GET /api/categories/<id>
+- GET /api/categories/{id}
 - POST /api/categories
-- PUT/PATCH /api/categories/<id>
-- DELETE /api/categories/<id>
+- PUT/PATCH /api/categories/{id}
+- DELETE /api/categories/{id}
 
 Corpo das requisicoes POST, PUT/PATCH:
 ```
